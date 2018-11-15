@@ -3,7 +3,7 @@ from models import *
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-engine = create_engine('sqlite:///cats.db')
+engine = create_engine('sqlite:///cats.db', connect_args={'check_same_thread': False})
 Base.metadata.create_all(engine)
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
@@ -20,3 +20,7 @@ def get_all_cats():
 def cat_id_route(id):
     cat = session.query(Cat).filter_by(id=id).first()
     return cat
+
+def add_new_cat(name):
+    form= Cat(name=name)
+    return form
