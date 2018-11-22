@@ -16,9 +16,8 @@ def cat_profile(id):
 
 
 @app.route('/form')
-def form(name):
-    form = add_new_cat(name)
-    return render_template("form.html", form=form)
+def form():
+    return render_template("form.html")
 
 
 

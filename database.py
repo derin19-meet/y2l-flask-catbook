@@ -21,6 +21,7 @@ def cat_id_route(id):
     cat = session.query(Cat).filter_by(id=id).first()
     return cat
 
-def add_new_cat(name):
-    form= Cat(name=name)
-    return form
+# def add_new_cat(name):
+#     cat_form= Cat(name=name)
+#     session.add(cat_form)
+#     session.commit()
